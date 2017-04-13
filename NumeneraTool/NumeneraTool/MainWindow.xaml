@@ -1,0 +1,60 @@
+﻿<Window x:Class="NumeneraTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NumeneraTool"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.CommandBindings>
+        <CommandBinding Command="local:NumeraCommands.AddValue" Executed="AddValue"></CommandBinding>
+        <CommandBinding Command="local:NumeraCommands.SubtractValue" Executed="SubtactValue"></CommandBinding>
+    </Window.CommandBindings>
+    <Grid>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5" Background="AliceBlue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="4" Grid.Row="0" FontWeight="Bold">Pool</Label>
+            <Label Grid.Column="5" Grid.Row="0" FontWeight="Bold">Edge</Label>
+            <Label Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" FontWeight="Bold">PlayerName</Label>
+            <Label Grid.Column="0" Grid.Row="1">Might</Label>
+            <Button x:Name="BtMightSub" Command="local:NumeraCommands.SubtractValue" CommandParameter="Might" Margin="3" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="3, 0, 3, 0">-</Button>
+            <TextBox  x:Name="TbMight" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="2" Grid.Column="2" Grid.Row="1" MinWidth="40">10</TextBox>
+            <Button x:Name="BtMightAdd" Command="local:NumeraCommands.AddValue" CommandParameter="Might"  Margin="3" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4, 0, 4, 0">+</Button>
+            <TextBox Name="LbMightPool" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center">0</TextBox>
+            <TextBox Name="LbMightEdge" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center">0</TextBox>
+            <Label Grid.Column="0" Grid.Row="2">Speed</Label>
+            <Button x:Name="BtSpeedSub" Command="local:NumeraCommands.SubtractValue" CommandParameter="Speed"  Margin="3" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="3, 0, 3, 0">-</Button>
+            <TextBox x:Name="TbSpeed" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="2" Grid.Column="2" Grid.Row="2" MinWidth="40">10</TextBox>
+            <Button x:Name="BtSpeedAdd" Command="local:NumeraCommands.AddValue" CommandParameter="Speed"  Margin="3" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4, 0, 4, 0">+</Button>
+            <TextBox Name="LbSpeedPool" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center">0</TextBox>
+            <TextBox Name="LbSpeedEdge" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center">0</TextBox>
+            <Label Grid.Column="0" Grid.Row="3">Intellect</Label>
+            <Button x:Name="BtIntellectSub" Command="local:NumeraCommands.SubtractValue" CommandParameter="Intellect"  Margin="3" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="3, 0, 3, 0">-</Button>
+            <TextBox x:Name="TbIntellect" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="2" Grid.Column="2" Grid.Row="3" MinWidth="40">10</TextBox>
+            <Button x:Name="BtIntellectAdd" Command="local:NumeraCommands.AddValue" CommandParameter="Intellect"  Margin="3" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4, 0, 4, 0">+</Button>
+            <TextBox Name="LbIntellectPool" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center">0</TextBox>
+            <TextBox Name="LbIntellectEdge" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Center">0</TextBox>
+            <Label Grid.Row="4" Grid.Column="0">Current armor:</Label>
+            <ComboBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Margin="5">
+                <ComboBoxItem Name="None">None</ComboBoxItem>
+                <ComboBoxItem Name="Light">Light</ComboBoxItem>
+                <ComboBoxItem Name="Medium">Medium</ComboBoxItem>
+                <ComboBoxItem Name="Heavy">Heavy</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+    </Grid>
+</Window>
