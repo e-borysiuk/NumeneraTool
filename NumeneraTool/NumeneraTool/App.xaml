@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:NumeneraTool"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="styles.xaml" />
     </Application.Resources>
 </Application>
