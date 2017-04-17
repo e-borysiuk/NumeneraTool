@@ -21,11 +21,14 @@
         <CommandBinding Command="local:NumeraCommands.SubtractValue" Executed="SubtactValue"></CommandBinding>
     </Window.CommandBindings>
     <Window.Background>
-        <ImageBrush ImageSource="background.jpg"></ImageBrush>
+        <ImageBrush ImageSource="WindowBackground.jpg"></ImageBrush>
     </Window.Background>
     <Grid Style="{StaticResource GridStyle}" HorizontalAlignment="Center" VerticalAlignment="Top">
         <Border HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2">
             <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid.Background>
+                    <ImageBrush ImageSource="GridBackground.jpg"></ImageBrush>
+                </Grid.Background>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
@@ -62,7 +65,7 @@
                 <Button x:Name="BtIntellectAdd" Command="local:NumeraCommands.AddValue" CommandParameter="Intellect" Grid.Column="3" Grid.Row="3">+</Button>
                 <TextBox Name="LbIntellectPool" Grid.Row="3" Grid.Column="4" Margin="5, 5, 0, 0">0</TextBox>
                 <TextBox Name="LbIntellectEdge" Grid.Row="3" Grid.Column="5">0</TextBox>
-                <Label Grid.Row="4" Grid.Column="0" Margin="0, 6, 0, 0">Current armor:</Label>
+                <Label Grid.Row="4" Grid.Column="0" Margin="0, 6, 0, 0" >Current armor:</Label>
                 <ComboBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5">
                     <ComboBoxItem Name="None">None</ComboBoxItem>
                     <ComboBoxItem Name="Light">Light</ComboBoxItem>

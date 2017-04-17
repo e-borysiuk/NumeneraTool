@@ -19,7 +19,7 @@
         <Setter Property="FontSize" Value="18" />
         <Setter Property="Opacity" Value="0.79" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="FontFamily" Value="Papyrus"/>
+        <Setter Property="FontFamily" Value="Copperplate Gothic Light"/>
     </Style>
     <Style x:Key="ButtonFocusVisual">
         <Setter Property="Control.Template">
@@ -43,7 +43,7 @@
         <Setter Property="Padding" Value="5, 0, 5, 2" />
         <Setter Property="Margin" Value="0, 5, 0, 0" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Background" Value="Goldenrod" />
+        <Setter Property="Background" Value="LightSteelBlue" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -120,7 +120,8 @@
     </Style>
     <Style x:Key="LbStyle" TargetType="Label">
         <Setter Property="FontSize" Value="18" />
-        <Setter Property="FontFamily" Value="Papyrus"/>
+        <Setter Property="FontFamily" Value="Copperplate Gothic Light"/>
         <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="SteelBlue" ></Setter>
     </Style>
 </ResourceDictionary>
