@@ -1,0 +1,63 @@
+﻿<Window x:Class="NumeneraTool.ManageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NumeneraTool"
+        mc:Ignorable="d"
+        Title="ManageWindow" SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <Style x:Key="GridStyle" TargetType="Grid">
+            <Style.Resources>
+                <Style TargetType="TextBox" BasedOn="{StaticResource TbStyleManage}" />
+                <Style TargetType="Button" BasedOn="{StaticResource BtStyle}" />
+                <Style TargetType="Label" BasedOn="{StaticResource LbStyleManage}" />
+                <Style TargetType="ComboBox" BasedOn="{StaticResource CbStyle}" />
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+    <Grid Style="{StaticResource GridStyle}">
+        <Grid.Background>
+            <ImageBrush ImageSource="GridBackground.jpg"></ImageBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListBox Style="{StaticResource ListStyle}" Margin="5" MinWidth="200" MinHeight="135">
+            
+        </ListBox>
+        <StackPanel Grid.Column="0" Grid.Row="1" >
+            <Button Name="BtDelete" Padding="4" HorizontalAlignment="Stretch" Margin="5">Delete</Button>
+            <Button Name="BtAdd" Padding="4" HorizontalAlignment="Stretch" Margin="5, 0, 5, 5">Add new</Button>
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Margin="0, 5, 0, 0">Player name:</Label>
+            <TextBox Name="TbName" Grid.Row="0" Grid.Column="1" Margin="10, 10, 10, 3" MinWidth="130" FontSize="18" HorizontalAlignment="Stretch"></TextBox>
+            <Separator Margin="0, 15, 0, 0" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"></Separator>
+            <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="3, 3, 3, 10">Default values:</Label>
+            <Label Grid.Column="0" Grid.Row="3">Might</Label>
+            <TextBox Name="TbDefaultMight" Grid.Column="1" Grid.Row="3"></TextBox>
+            <Label Grid.Column="0" Grid.Row="4">Speed</Label>
+            <TextBox Name="TbDefaultSpeed" Grid.Column="1" Grid.Row="4"></TextBox>
+            <Label Grid.Column="0" Grid.Row="5">Intellect</Label>
+            <TextBox Name="TbDefaultIntellect" Grid.Column="1" Grid.Row="5"></TextBox>
+        </Grid>
+    </Grid>
+</Window>

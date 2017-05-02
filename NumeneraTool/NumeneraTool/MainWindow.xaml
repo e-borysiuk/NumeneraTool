@@ -21,10 +21,14 @@
         <CommandBinding Command="local:NumeraCommands.SubtractValue" Executed="SubtactValue"></CommandBinding>
     </Window.CommandBindings>
     <Window.Background>
-        <ImageBrush ImageSource="WindowBackground.jpg"></ImageBrush>
+        <LinearGradientBrush>
+            <GradientStop Color="WhiteSmoke" Offset="0"></GradientStop>
+            <GradientStop Color="CornflowerBlue" Offset="1"></GradientStop>
+        </LinearGradientBrush>
     </Window.Background>
     <Grid Style="{StaticResource GridStyle}" HorizontalAlignment="Center" VerticalAlignment="Top">
-        <Border HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2">
+        <DockPanel>
+        <Border DockPanel.Dock="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2">
             <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Grid.Background>
                     <ImageBrush ImageSource="GridBackground.jpg"></ImageBrush>
@@ -74,5 +78,10 @@
                 </ComboBox>
             </Grid>
         </Border>
+            <Menu DockPanel.Dock="Top" Style="{StaticResource MenuStyle}">
+                <MenuItem Header="Save"></MenuItem>
+                <MenuItem Header="Manage" Click="MenuManage_Click"></MenuItem>
+            </Menu>
+        </DockPanel>
     </Grid>
 </Window>

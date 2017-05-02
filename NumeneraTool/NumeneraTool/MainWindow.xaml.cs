@@ -44,5 +44,11 @@ namespace NumeneraTool
                 tbPool.Text = (--value).ToString();
             }
         }
+
+        private void MenuManage_Click(object sender, RoutedEventArgs e)
+        {
+            ManageWindow manageWindow = new ManageWindow();
+            manageWindow.Show();
+        }
     }
 }

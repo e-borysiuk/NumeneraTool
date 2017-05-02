@@ -8,10 +8,10 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Margin" Value="5, 5, 5, 0" />
         <Setter Property="MinHeight" Value="20" />
-        <Setter Property="MinWidth" Value="30" />
+        <Setter Property="MinWidth" Value="35" />
         <Setter Property="FontSize" Value="24" />
         <Setter Property="Padding" Value="2" />
-        <Setter Property="Opacity" Value="0.79" />
+        <Setter Property="Opacity" Value="0.70" />
     </Style>
     <Style x:Key="CbStyle" TargetType="{x:Type ComboBox}">
         <Setter Property="Margin" Value="0, 5, 5, 5" />
@@ -20,17 +20,6 @@
         <Setter Property="Opacity" Value="0.79" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontFamily" Value="Copperplate Gothic Light"/>
-    </Style>
-    <Style x:Key="ButtonFocusVisual">
-        <Setter Property="Control.Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <Border>
-                        <Rectangle SnapsToDevicePixels="true" Margin="4" Stroke="Black" StrokeDashArray="1 2" StrokeThickness="1"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
     </Style>
     <Style x:Key="BtStyle" TargetType="Button">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -43,78 +32,12 @@
         <Setter Property="Padding" Value="5, 0, 5, 2" />
         <Setter Property="Margin" Value="0, 5, 0, 0" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Background" Value="LightSteelBlue" />
-        <Setter Property="Template">
+        <Setter Property="Background">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ControlTemplate.Resources>
-                        <Storyboard x:Key="ShowShine">
-                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Shine" Storyboard.TargetProperty="(UIElement.Opacity)">
-                                <SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1"/>
-                            </DoubleAnimationUsingKeyFrames>
-                        </Storyboard>
-                        <Storyboard x:Key="HideShine">
-                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Shine" Storyboard.TargetProperty="(UIElement.Opacity)">
-                                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
-                            </DoubleAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </ControlTemplate.Resources>
-                    <Border CornerRadius="5,5,5,5" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5" x:Name="border" BorderBrush="#FFFFFFFF">
-                        <Border.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform ScaleX="1" ScaleY="1"/>
-                                <SkewTransform AngleX="0" AngleY="0"/>
-                                <RotateTransform Angle="0"/>
-                                <TranslateTransform X="0" Y="0"/>
-                            </TransformGroup>
-                        </Border.RenderTransform>
-                        <Border Background="{TemplateBinding Background}" CornerRadius="5,5,5,5" x:Name="border1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="0.5*"/>
-                                    <RowDefinition Height="0.5*"/>
-                                </Grid.RowDefinitions>
-                                <Border Grid.Row="0" CornerRadius="5,5,0,0">
-                                    <Border.Background>
-                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                            <GradientStop Color="#00FFFFFF" Offset="0"/>
-                                            <GradientStop Color="#7EFFFFFF" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Border.Background>
-                                </Border>
-                                <Border Grid.Row="1" Opacity="0" x:Name="Shine" Width="Auto" Height="Auto" CornerRadius="0,0,5,5" Margin="1,0,-1,0" Background="{TemplateBinding BorderBrush}"/>
-                                <ContentPresenter VerticalAlignment="Center"  Grid.RowSpan="2" HorizontalAlignment="Center" x:Name="contentPresenter"/>
-                            </Grid>
-                        </Border>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" TargetName="border1" Value="0.5"/>
-                            <Setter Property="Opacity" TargetName="border" Value="1"/>
-                            <Setter Property="Opacity" TargetName="contentPresenter" Value="0.5"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="RenderTransform" TargetName="border">
-                                <Setter.Value>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
-                                        <SkewTransform AngleX="0" AngleY="0"/>
-                                        <RotateTransform Angle="0"/>
-                                        <TranslateTransform X="0" Y="0"/>
-                                    </TransformGroup>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Trigger.ExitActions>
-                                <BeginStoryboard Storyboard="{StaticResource HideShine}" x:Name="HideShine_BeginStoryboard"/>
-                            </Trigger.ExitActions>
-                            <Trigger.EnterActions>
-                                <BeginStoryboard x:Name="ShowShine_BeginStoryboard" Storyboard="{StaticResource ShowShine}"/>
-                            </Trigger.EnterActions>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
+                <LinearGradientBrush>
+                    <GradientStop Color="AliceBlue" Offset="0"/>
+                    <GradientStop Color="#FF092051" Offset="1"/>
+                </LinearGradientBrush>
             </Setter.Value>
         </Setter>
     </Style>
@@ -122,6 +45,32 @@
         <Setter Property="FontSize" Value="18" />
         <Setter Property="FontFamily" Value="Copperplate Gothic Light"/>
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Foreground" Value="SteelBlue" ></Setter>
+        <Setter Property="Foreground" Value="RoyalBlue" ></Setter>
+    </Style>
+    <Style x:Key="MenuStyle" TargetType="Menu">
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="#FF68B5F5"></SolidColorBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="MenuItem">
+                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Opacity" Value="0.60"></Setter>
+    </Style>
+    <Style x:Key="ListStyle" TargetType="ListBox">
+        <Setter Property="Opacity" Value="0.2"></Setter>
+    </Style>
+    <Style x:Key="TbStyleManage" TargetType="TextBox" BasedOn="{StaticResource TbStyle}">
+        <Setter Property="Margin" Value="10, 3, 3, 3"/>
+        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+    </Style>
+    <Style x:Key="LbStyleManage" TargetType="Label" BasedOn="{StaticResource LbStyle}">
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
     </Style>
 </ResourceDictionary>
