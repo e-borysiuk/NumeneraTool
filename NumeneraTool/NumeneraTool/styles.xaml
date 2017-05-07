@@ -63,7 +63,11 @@
         <Setter Property="Opacity" Value="0.60"></Setter>
     </Style>
     <Style x:Key="ListStyle" TargetType="ListBox">
-        <Setter Property="Opacity" Value="0.2"></Setter>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Opacity="0.5" />
+            </Setter.Value>
+        </Setter>
     </Style>
     <Style x:Key="TbStyleManage" TargetType="TextBox" BasedOn="{StaticResource TbStyle}">
         <Setter Property="Margin" Value="10, 3, 3, 3"/>

@@ -22,7 +22,19 @@ namespace NumeneraTool
         public ManageWindow()
         {
             InitializeComponent();
+            LbPlayers.ItemsSource = PlayersList.Players;
         }
 
+        private void BtDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (LbPlayers.SelectedIndex == -1) return;
+            PlayersList.Players.RemoveAt(LbPlayers.SelectedIndex);
+        }
+
+        private void BtAdd_Click(object sender, RoutedEventArgs e)
+        {
+            PlayersList.Players.Add(new Player("New player"));
+            LbPlayers.SelectedIndex = LbPlayers.Items.Count - 1;
+        }
     }
 }

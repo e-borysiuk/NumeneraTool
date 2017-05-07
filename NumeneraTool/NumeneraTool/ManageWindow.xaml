@@ -15,8 +15,9 @@
                 <Style TargetType="ComboBox" BasedOn="{StaticResource CbStyle}" />
             </Style.Resources>
         </Style>
+        <local:PlayersList x:Key="Players"/>
     </Window.Resources>
-    <Grid Style="{StaticResource GridStyle}">
+    <Grid Style="{StaticResource GridStyle}" DataContext="{Binding ElementName=LbPlayers, Path=SelectedItem}">
         <Grid.Background>
             <ImageBrush ImageSource="GridBackground.jpg"></ImageBrush>
         </Grid.Background>
@@ -28,12 +29,16 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <ListBox Style="{StaticResource ListStyle}" Margin="5" MinWidth="200" MinHeight="135">
-            
+        <ListBox Name="LbPlayers" Style="{StaticResource ListStyle}" Margin="5" MinWidth="200" MinHeight="135">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Path=Name}" FontSize="16"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel Grid.Column="0" Grid.Row="1" >
-            <Button Name="BtDelete" Padding="4" HorizontalAlignment="Stretch" Margin="5">Delete</Button>
-            <Button Name="BtAdd" Padding="4" HorizontalAlignment="Stretch" Margin="5, 0, 5, 5">Add new</Button>
+            <Button Name="BtDelete" Padding="4" HorizontalAlignment="Stretch" Margin="5" Click="BtDelete_Click">Delete</Button>
+            <Button Name="BtAdd" Padding="4" HorizontalAlignment="Stretch" Margin="5, 0, 5, 5" Click="BtAdd_Click">Add new</Button>
         </StackPanel>
         <Grid Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
@@ -49,15 +54,15 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <Label Margin="0, 5, 0, 0">Player name:</Label>
-            <TextBox Name="TbName" Grid.Row="0" Grid.Column="1" Margin="10, 10, 10, 3" MinWidth="130" FontSize="18" HorizontalAlignment="Stretch"></TextBox>
+            <TextBox Name="TbName" Text="{Binding Path=Name}" Grid.Row="0" Grid.Column="1" Margin="10,0,10,3" MinWidth="130" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></TextBox>
             <Separator Margin="0, 15, 0, 0" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"></Separator>
             <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="3, 3, 3, 10">Default values:</Label>
             <Label Grid.Column="0" Grid.Row="3">Might</Label>
-            <TextBox Name="TbDefaultMight" Grid.Column="1" Grid.Row="3"></TextBox>
+            <TextBox Name="TbDefaultMight" Text="{Binding Path=Might.Pool}" Grid.Column="1" Grid.Row="3"></TextBox>
             <Label Grid.Column="0" Grid.Row="4">Speed</Label>
-            <TextBox Name="TbDefaultSpeed" Grid.Column="1" Grid.Row="4"></TextBox>
+            <TextBox Name="TbDefaultSpeed" Text="{Binding Path=Speed.Pool}" Grid.Column="1" Grid.Row="4"></TextBox>
             <Label Grid.Column="0" Grid.Row="5">Intellect</Label>
-            <TextBox Name="TbDefaultIntellect" Grid.Column="1" Grid.Row="5"></TextBox>
+            <TextBox Name="TbDefaultIntellect" Text="{Binding Path=Intellect.Pool}" Grid.Column="1" Grid.Row="5"></TextBox>
         </Grid>
     </Grid>
 </Window>

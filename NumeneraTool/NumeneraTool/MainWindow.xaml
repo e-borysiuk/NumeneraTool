@@ -28,60 +28,73 @@
     </Window.Background>
     <Grid Style="{StaticResource GridStyle}" HorizontalAlignment="Center" VerticalAlignment="Top">
         <DockPanel>
-        <Border DockPanel.Dock="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2">
-            <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Grid.Background>
-                    <ImageBrush ImageSource="GridBackground.jpg"></ImageBrush>
-                </Grid.Background>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Label Grid.Column="4" Grid.Row="0">Pool</Label>
-                <Label Grid.Column="5" Grid.Row="0">Edge</Label>
-                <Label Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center">PlayerName</Label>
-                <Label Grid.Column="0" Grid.Row="1" Margin="0, 5, 0, 0">Might</Label>
-                <Button x:Name="BtMightSub" Command="local:NumeraCommands.SubtractValue" CommandParameter="Might" Grid.Column="1" Grid.Row="1">-</Button>
-                <TextBox x:Name="TbMight" Grid.Column="2" Grid.Row="1" >10</TextBox>
-                <Button x:Name="BtMightAdd" Command="local:NumeraCommands.AddValue" CommandParameter="Might" Grid.Column="3" Grid.Row="1">+</Button>
-                <TextBox Name="LbMightPool" Margin="5, 5, 0, 0" Grid.Row="1" Grid.Column="4">0</TextBox>
-                <TextBox Name="LbMightEdge" Grid.Row="1" Grid.Column="5">0</TextBox>
-                <Label Grid.Column="0" Grid.Row="2" Margin="0, 5, 0, 0">Speed</Label>
-                <Button x:Name="BtSpeedSub" Command="local:NumeraCommands.SubtractValue" CommandParameter="Speed" Grid.Column="1" Grid.Row="2">-</Button>
-                <TextBox x:Name="TbSpeed" Grid.Column="2" Grid.Row="2">10</TextBox>
-                <Button x:Name="BtSpeedAdd" Command="local:NumeraCommands.AddValue" CommandParameter="Speed" Grid.Column="3" Grid.Row="2">+</Button>
-                <TextBox Name="LbSpeedPool" Grid.Row="2" Grid.Column="4" Margin="5, 5, 0, 0">0</TextBox>
-                <TextBox Name="LbSpeedEdge" Grid.Row="2" Grid.Column="5" >0</TextBox>
-                <Label Grid.Column="0" Grid.Row="3" Margin="0, 5, 0, 0">Intellect</Label>
-                <Button x:Name="BtIntellectSub" Command="local:NumeraCommands.SubtractValue" CommandParameter="Intellect" Grid.Column="1" Grid.Row="3">-</Button>
-                <TextBox x:Name="TbIntellect" Grid.Column="2" Grid.Row="3">10</TextBox>
-                <Button x:Name="BtIntellectAdd" Command="local:NumeraCommands.AddValue" CommandParameter="Intellect" Grid.Column="3" Grid.Row="3">+</Button>
-                <TextBox Name="LbIntellectPool" Grid.Row="3" Grid.Column="4" Margin="5, 5, 0, 0">0</TextBox>
-                <TextBox Name="LbIntellectEdge" Grid.Row="3" Grid.Column="5">0</TextBox>
-                <Label Grid.Row="4" Grid.Column="0" Margin="0, 6, 0, 0" >Current armor:</Label>
-                <ComboBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5">
-                    <ComboBoxItem Name="None">None</ComboBoxItem>
-                    <ComboBoxItem Name="Light">Light</ComboBoxItem>
-                    <ComboBoxItem Name="Medium">Medium</ComboBoxItem>
-                    <ComboBoxItem Name="Heavy">Heavy</ComboBoxItem>
-                </ComboBox>
-            </Grid>
-        </Border>
             <Menu DockPanel.Dock="Top" Style="{StaticResource MenuStyle}">
                 <MenuItem Header="Save"></MenuItem>
                 <MenuItem Header="Manage" Click="MenuManage_Click"></MenuItem>
             </Menu>
+            <ListBox Name="LbPlayers" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <!--my item template-->
+                        <Border DockPanel.Dock="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Grid.Background>
+                                <ImageBrush ImageSource="GridBackground.jpg"></ImageBrush>
+                            </Grid.Background>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="4" Grid.Row="0">Pool</Label>
+                            <Label Grid.Column="5" Grid.Row="0">Edge</Label>
+                                <Label Grid.ColumnSpan="2" Content="{Binding Name}" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center"></Label>
+                            <Label Grid.Column="0" Grid.Row="1" Margin="0, 5, 0, 0">Might</Label>
+                            <Button x:Name="BtMightSub" Command="local:NumeraCommands.SubtractValue" CommandParameter="Might" Grid.Column="1" Grid.Row="1">-</Button>
+                                <TextBox x:Name="TbMight" Text="{Binding Might.Current}" Grid.Column="2" Grid.Row="1" ></TextBox>
+                            <Button x:Name="BtMightAdd" Command="local:NumeraCommands.AddValue" CommandParameter="Might" Grid.Column="3" Grid.Row="1">+</Button>
+                                <TextBox Name="LbMightPool" Text="{Binding Might.Pool}" Margin="5, 5, 0, 0" Grid.Row="1" Grid.Column="4"></TextBox>
+                                <TextBox Name="LbMightEdge" Text="{Binding Might.Edge}" Grid.Row="1" Grid.Column="5"></TextBox>
+                            <Label Grid.Column="0" Grid.Row="2" Margin="0, 5, 0, 0">Speed</Label>
+                            <Button x:Name="BtSpeedSub" Command="local:NumeraCommands.SubtractValue" CommandParameter="Speed" Grid.Column="1" Grid.Row="2">-</Button>
+                                <TextBox x:Name="TbSpeed" Text="{Binding Speed.Current}" Grid.Column="2" Grid.Row="2"></TextBox>
+                            <Button x:Name="BtSpeedAdd" Command="local:NumeraCommands.AddValue" CommandParameter="Speed" Grid.Column="3" Grid.Row="2">+</Button>
+                                <TextBox Name="LbSpeedPool" Text="{Binding Speed.Pool}" Grid.Row="2" Grid.Column="4" Margin="5, 5, 0, 0"></TextBox>
+                                <TextBox Name="LbSpeedEdge" Text="{Binding Speed.Edge}" Grid.Row="2" Grid.Column="5" ></TextBox>
+                            <Label Grid.Column="0" Grid.Row="3" Margin="0, 5, 0, 0">Intellect</Label>
+                            <Button x:Name="BtIntellectSub" Command="local:NumeraCommands.SubtractValue" CommandParameter="Intellect" Grid.Column="1" Grid.Row="3">-</Button>
+                                <TextBox x:Name="TbIntellect" Text="{Binding Intellect.Current}" Grid.Column="2" Grid.Row="3"></TextBox>
+                            <Button x:Name="BtIntellectAdd" Command="local:NumeraCommands.AddValue" CommandParameter="Intellect" Grid.Column="3" Grid.Row="3">+</Button>
+                                <TextBox Name="LbIntellectPool" Text="{Binding Intellect.Pool}" Grid.Row="3" Grid.Column="4" Margin="5, 5, 0, 0"></TextBox>
+                                <TextBox Name="LbIntellectEdge" Text="{Binding Intellect.Edge}" Grid.Row="3" Grid.Column="5"></TextBox>
+                            <Label Grid.Row="4" Grid.Column="0" Margin="0, 6, 0, 0" >Current armor:</Label>
+                            <ComboBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5">
+                                <ComboBoxItem Name="None">None</ComboBoxItem>
+                                <ComboBoxItem Name="Light">Light</ComboBoxItem>
+                                <ComboBoxItem Name="Medium">Medium</ComboBoxItem>
+                                <ComboBoxItem Name="Heavy">Heavy</ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+                    </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        
         </DockPanel>
     </Grid>
 </Window>

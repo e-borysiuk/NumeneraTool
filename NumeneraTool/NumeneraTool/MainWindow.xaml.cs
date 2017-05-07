@@ -23,25 +23,46 @@ namespace NumeneraTool
         public MainWindow()
         {
             InitializeComponent();
+            PlayersList.Players.Add(new Player("Felix"));
+            PlayersList.Players.Add(new Player("Weaver"));
+            PlayersList.Players.Add(new Player("Dorain"));
+            LbPlayers.ItemsSource = PlayersList.Players;
         }
 
         private void AddValue(object sender, ExecutedRoutedEventArgs e)
         {
-            TextBox tbPool = (TextBox) this.FindName("Tb" + e.Parameter);
-            if (tbPool != null)
+            var parent = (Grid)((Button)e.OriginalSource).Parent;
+            Player currentPlayer = (Player)parent.DataContext;
+            switch (e.Parameter.ToString())
             {
-                var value = int.Parse(tbPool.Text);
-                tbPool.Text = (++value).ToString();
+                case "Might":
+                    currentPlayer.Might.Current++;
+                    break;
+                case "Speed":
+                    currentPlayer.Speed.Current++;
+                    break;
+                case "Intellect":
+                    currentPlayer.Intellect.Current++;
+                    break;
             }
+
         }
 
         private void SubtactValue(object sender, ExecutedRoutedEventArgs e)
         {
-            TextBox tbPool = (TextBox)this.FindName("Tb" + e.Parameter);
-            if (tbPool != null)
+            var parent = (Grid)((Button)e.OriginalSource).Parent;
+            Player currentPlayer = (Player)parent.DataContext;
+            switch (e.Parameter.ToString())
             {
-                var value = int.Parse(tbPool.Text);
-                tbPool.Text = (--value).ToString();
+                case "Might":
+                    currentPlayer.Might.Current--;
+                    break;
+                case "Speed":
+                    currentPlayer.Speed.Current--;
+                    break;
+                case "Intellect":
+                    currentPlayer.Intellect.Current--;
+                    break;
             }
         }
 
