@@ -8,6 +8,7 @@ namespace NumeneraTool
         private short _current;
         private short _pool;
         private short _edge;
+        private short _effort;
 
         public DataClass()
         {
@@ -42,6 +43,16 @@ namespace NumeneraTool
             set
             {
                 _edge = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public short Effort
+        {
+            get { return _effort; }
+            set
+            {
+                _effort = value;
                 OnPropertyChanged();
             }
         }

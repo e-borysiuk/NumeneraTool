@@ -56,7 +56,7 @@
             <Label Margin="0, 5, 0, 0">Player name:</Label>
             <TextBox Name="TbName" Text="{Binding Path=Name}" Grid.Row="0" Grid.Column="1" Margin="10,0,10,3" MinWidth="130" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></TextBox>
             <Separator Margin="0, 15, 0, 0" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"></Separator>
-            <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="3, 3, 3, 10">Default values:</Label>
+            <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="3, 3, 3, 10">Pool value:</Label>
             <Label Grid.Column="0" Grid.Row="3">Might</Label>
             <TextBox Name="TbDefaultMight" Text="{Binding Path=Might.Pool}" Grid.Column="1" Grid.Row="3"></TextBox>
             <Label Grid.Column="0" Grid.Row="4">Speed</Label>

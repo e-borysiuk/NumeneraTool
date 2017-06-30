@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,5 +37,6 @@ namespace NumeneraTool
             PlayersList.Players.Add(new Player("New player"));
             LbPlayers.SelectedIndex = LbPlayers.Items.Count - 1;
         }
+
     }
 }

@@ -45,12 +45,19 @@
         <Setter Property="FontSize" Value="18" />
         <Setter Property="FontFamily" Value="Copperplate Gothic Light"/>
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Foreground" Value="RoyalBlue" ></Setter>
+        <Setter Property="Foreground" Value="#FF23A5FF" ></Setter>
     </Style>
     <Style x:Key="MenuStyle" TargetType="Menu">
         <Setter Property="Background">
             <Setter.Value>
-                <SolidColorBrush Color="#FF68B5F5"></SolidColorBrush>
+                <SolidColorBrush Color="#FF68B5F5">
+                    <SolidColorBrush.Opacity>0.60</SolidColorBrush.Opacity>
+                </SolidColorBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="Black"></SolidColorBrush>
             </Setter.Value>
         </Setter>
         <Setter Property="ItemContainerStyle">
@@ -60,7 +67,6 @@
                 </Style>
             </Setter.Value>
         </Setter>
-        <Setter Property="Opacity" Value="0.60"></Setter>
     </Style>
     <Style x:Key="ListStyle" TargetType="ListBox">
         <Setter Property="Background">
