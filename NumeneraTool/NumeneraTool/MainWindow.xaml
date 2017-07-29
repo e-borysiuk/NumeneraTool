@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NumeneraTool"
         mc:Ignorable="d"
-        Title="MainWindow" SizeToContent="WidthAndHeight" MinWidth="300" MinHeight="200" Closing="MainWindow_OnClosing">
+        Title="Numenera Tool" SizeToContent="WidthAndHeight" MinWidth="300" MinHeight="200" Closing="MainWindow_OnClosing">
     <Window.Resources>
         <Style x:Key="GridStyle" TargetType="Grid">
             <Style.Resources>
